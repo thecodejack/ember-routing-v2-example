@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="jquery-1.8.3.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script type="text/javascript" src="handlebars-1.0.rc.1.js"></script>
+	<script type="text/javascript" src="ember.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+<script type="text/x-handlebars" data-template-name="application">
+	<h1>Applcation Template</h1>
+	<nav>
+  {{#linkTo "home"}}Home{{/linkTo}}
+  {{#linkTo "site"}}Site{{/linkTo}}
+</nav>
+    {{outlet header}}
+    {{outlet body}}
+    {{outlet navBar}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="home">
+  <h1>Home Template</h1>
+</script>
+
+
+
+
+<script type="text/x-handlebars" data-template-name="site">
+  <h1>Site Template</h1>
+</script>
+
+</body>
+</html>
