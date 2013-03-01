@@ -10,8 +10,10 @@
 <script type="text/x-handlebars" data-template-name="application">
 	<h1>Applcation Template</h1>
 	<nav>
-  {{#linkTo "home"}}Home{{/linkTo}}
-  {{#linkTo "site"}}Site{{/linkTo}}
+  {{#linkTo "home"}}Home{{/linkTo}}<br>
+  {{#linkTo "site"}}Site{{/linkTo}}<br>
+  {{#linkTo "posts.index"}}Posts Main Index path{{/linkTo}}<br>
+  {{#linkTo "posts.new"}}Posts SubPath{{/linkTo}}
 </nav>
     {{outlet header}}
     {{outlet body}}
@@ -22,11 +24,17 @@
   <h1>Home Template</h1>
 </script>
 
-
-
-
 <script type="text/x-handlebars" data-template-name="site">
   <h1>Site Template</h1>
+</script>
+
+<script type="text/x-handlebars" data-template-name="posts/index">
+  <h1>PostsIndex Template</h1>
+</script>
+
+
+<script type="text/x-handlebars" data-template-name="posts/new">
+  <h1>PostsNew Template</h1>
 </script>
 
 </body>

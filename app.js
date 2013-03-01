@@ -1,6 +1,4 @@
-window.App = Ember.Application.create({
-
-});
+window.App = Ember.Application.create();
 
 //Views
 App.ApplicationView = Ember.View.extend({
@@ -15,10 +13,23 @@ App.SiteView = Ember.View.extend({
 
 });
 
+App.PostsIndexView = Ember.View.extend({
+     elementId: 'appPostsIndex',
+    templateName: 'posts/index'
+});
+
+App.PostsNewView = Ember.View.extend({
+     elementId: 'appPostsNew',
+    templateName: 'posts/new'
+});
+
 // ROUTER
 App.Router.map(function() {
 	this.route("home", { path: "/home" });
 	this.route("site",{path:"/site"});
+  this.resource("posts",function(){
+    this.route("new", { path: "/new" });
+  });
 });
 
 App.HomeRoute = Ember.Route.extend({
@@ -40,3 +51,34 @@ App.SiteRoute = Ember.Route.extend({
     });
   }
 });
+
+
+App.PostsIndexRoute = Ember.Route.extend({
+  renderTemplate: function() {
+    this.render('postsIndex',{
+      into: 'application',          // the template to render into
+      outlet: 'body'       // the name of the outlet in that template
+      //controller: 'blogPost'  // the controller to use for the template
+    });
+  }
+});
+
+App.PostsNewRoute = Ember.Route.extend({
+  enter: function(router) {
+    console.log("Entered PostsNew Route");
+  },
+  renderTemplate: function() {
+    this.render('postsNew',{
+      into: 'application',          // the template to render into
+      outlet: 'navBar'       // the name of the outlet in that template
+      //controller: 'blogPost'  // the controller to use for the template
+    });
+  }
+});
+
+
+
+
+
+
+
